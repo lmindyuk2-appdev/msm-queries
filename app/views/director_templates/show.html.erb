@@ -1,0 +1,134 @@
+<h1>
+  Director <%= @director.id %> details
+</h1>
+
+<a href="/directors" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+
+<a href="/delete_director/<%=@director.id%>" class="btn btn-block btn-outline-secondary">
+  Delete director
+</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%=@director.name%>
+  </dd>
+
+  <dt>
+    Dob
+  </dt>
+  <dd>
+    <%=@director.dob%>
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%=@director.bio%>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <%=@director.image%>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%=time_ago_in_words(@director.created_at)%> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    a<%=time_ago_in_words(@director.updated_at)%> ago
+  </dd>
+</dl>
+
+<hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @filmography.each do |a_film|%>
+  <tr>
+    <td>
+      <%= a_film.id%>
+    </td>
+
+    <td>
+      <img src="http://robohash.org/<%= a_film.image%>?set=set3">
+    </td>
+
+    <td>
+      <%= a_film.title%>
+    </td>
+
+    <td>
+      <%= a_film.year%>
+    </td>
+
+    <td>
+      <%= @director.name%>
+    </td>
+
+    <td>
+      <img src="https://robohash.org/The Shawshank Redemption?set=set4">
+    </td>
+
+    <td>
+      The Shawshank Redemption
+    </td>
+
+    <td>
+      1994
+    </td>
+
+    <td>
+      @director.name
+    </td>
+
+    <td>
+      <a href="/movies/1">
+        Show details
+      </a>
+    </td>
+  </tr>
+</table>
