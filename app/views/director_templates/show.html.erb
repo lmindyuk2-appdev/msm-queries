@@ -6,6 +6,7 @@
   Go back
 </a>
 
+&nbsp;|&nbsp;
 
 <a href="/delete_director/<%=@director.id%>" class="btn btn-block btn-outline-secondary">
   Delete director
@@ -57,11 +58,10 @@
   </dd>
 </dl>
 
-<hr>
-
 <h2>Filmography</h2>
 
 <table border="1">
+  <% @filmography.each do |a_film|%>
   <tr>
     <th>
       ID
@@ -84,10 +84,11 @@
     </th>
 
     <th>
+
     </th>
   </tr>
 
-  <% @filmography.each do |a_film|%>
+
   <tr>
     <td>
       <%= a_film.id%>
@@ -106,29 +107,15 @@
     </td>
 
     <td>
-      <%= @director.name%>
+      <% d = Director.where({ :id => a_film.director_id }).at(0) %>
+      <%= d.name %>
     </td>
 
     <td>
-      <img src="https://robohash.org/The Shawshank Redemption?set=set4">
-    </td>
-
-    <td>
-      The Shawshank Redemption
-    </td>
-
-    <td>
-      1994
-    </td>
-
-    <td>
-      @director.name
-    </td>
-
-    <td>
-      <a href="/movies/1">
+      <a href="/movies/<%= a_film.id%>">
         Show details
       </a>
     </td>
   </tr>
+<% end%>
 </table>
