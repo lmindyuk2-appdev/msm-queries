@@ -3,12 +3,35 @@
 <table border="1">
 <% @list_of_actors.each do |actor| %>
   <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Dob
+    </th>
+
+    <th>
+    </th>
+
+    <th>
+
+    </th>
+  </tr>
+  <tr>
     <td><%= actor.id %> </td>
     <td>
       <img src = "http://robohash.org/<%= actor.image %>"> </td>
     <td><%= actor.name %> </td>
     <td><%= actor.dob %> </td>
-    <%# <td><%= movie.director_id %> </td> %>
     <td>
       <a href="/actors/<%= actor.id %>">
         Show details
